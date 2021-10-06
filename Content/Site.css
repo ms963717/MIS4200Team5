@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* text and links are inherently different colors in formatting*/
+ /* .jumbotron ul > li > a {
+    color:white
+}
+h
