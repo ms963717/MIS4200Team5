@@ -14,6 +14,7 @@ namespace MIS4200Team5.DAL
 
         }
         public DbSet<Profile> Profile { get; set; }
-     
+
+        public System.Data.Entity.DbSet<MIS4200Team5.Models.EmployeeQuestions> EmployeeQuestions { get; set; }
     }
 }
