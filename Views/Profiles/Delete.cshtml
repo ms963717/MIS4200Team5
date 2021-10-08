@@ -1,0 +1,64 @@
+﻿@model MIS4200Team5.Models.Profile
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileFirst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileFirst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileLast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileLast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileBday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileBday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileJobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileJobTitle)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

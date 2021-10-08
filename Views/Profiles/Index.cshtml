@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MIS4200Team5.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileFirst)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileLast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileBday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfileJobTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileFirst)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileLast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileBday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfileJobTitle)
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProfileID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileID })
+        </td>
+    </tr>
+}
+
+</table>
