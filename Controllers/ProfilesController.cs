@@ -53,7 +53,7 @@ namespace MIS4200Team5.Controllers
             {
                 db.Profile.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create, EmployeeQuestions");
             }
 
             return View(profile);

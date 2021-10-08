@@ -9,6 +9,6 @@ namespace MIS4200Team5.Models
     public class EmployeeQuestions
     {
         public string EmployeeQuestionsID { get; set; }
-        public int MyProperty { get; set; }
+        public int test { get; set; }
     }
 }
