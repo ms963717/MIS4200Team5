@@ -22,7 +22,7 @@ namespace MIS4200Team5.Controllers
         }
 
         // GET: EmployeeQuestions/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -47,7 +47,7 @@ namespace MIS4200Team5.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeQuestionsID")] EmployeeQuestions employeeQuestions)
+        public ActionResult Create([Bind(Include = "EmployeeQuestionsID,Q1,Q2,Q3,Q4,Q5")] EmployeeQuestions employeeQuestions)
         {
             if (ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace MIS4200Team5.Controllers
         }
 
         // GET: EmployeeQuestions/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -79,7 +79,7 @@ namespace MIS4200Team5.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeQuestionsID")] EmployeeQuestions employeeQuestions)
+        public ActionResult Edit([Bind(Include = "EmployeeQuestionsID,Q1,Q2,Q3,Q4,Q5")] EmployeeQuestions employeeQuestions)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace MIS4200Team5.Controllers
         }
 
         // GET: EmployeeQuestions/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -108,7 +108,7 @@ namespace MIS4200Team5.Controllers
         // POST: EmployeeQuestions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             EmployeeQuestions employeeQuestions = db.EmployeeQuestions.Find(id);
             db.EmployeeQuestions.Remove(employeeQuestions);

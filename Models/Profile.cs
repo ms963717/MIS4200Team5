@@ -20,6 +20,7 @@ namespace MIS4200Team5.Models
         public string ProfileEmail { get; set; }
         [DisplayName("Job Title")]
         public string ProfileJobTitle { get; set; }
-        
+        public ICollection<EmployeeQuestions> EmployeeQuestions { get; set; }
+
     }
 }

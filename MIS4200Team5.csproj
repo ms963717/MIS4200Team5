@@ -169,7 +169,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeQuestionsController.cs" />
-    <Compile Include="Controllers\ExtraInformsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
@@ -253,6 +252,11 @@
     <Content Include="Views\EmployeeQuestions\Edit.cshtml" />
     <Content Include="Views\EmployeeQuestions\Index.cshtml" />
     <Content Include="Views\Home\CoreValues.cshtml" />
+    <Content Include="Views\EmployeeAdded\Create.cshtml" />
+    <Content Include="Views\EmployeeAdded\Delete.cshtml" />
+    <Content Include="Views\EmployeeAdded\Details.cshtml" />
+    <Content Include="Views\EmployeeAdded\Edit.cshtml" />
+    <Content Include="Views\EmployeeAdded\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,14 +1,23 @@
-﻿@model IEnumerable<MIS4200Team5.Models.Profile>
+﻿
+@model IEnumerable<MIS4200Team5.Models.Profile>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Profiles of every employee</h2>
+
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index","Profiles",FormMethod.Get))
+{
+    <p>
+        Find a profile by their first name:@Html.TextBox("searchString")
+        <input type="submit" value="Search"/>
+    </p>
+}
 <table class="table">
     <tr>
         <th>

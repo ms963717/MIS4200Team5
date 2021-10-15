@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using MIS4200Team5.DAL;
 using MIS4200Team5.Models;
 
+
+
 namespace MIS4200Team5.Controllers
 {
     public class ProfilesController : Controller
@@ -16,12 +18,23 @@ namespace MIS4200Team5.Controllers
         private ProfileContext db = new ProfileContext();
 
         // GET: Profiles
-        public ActionResult Index()
+        [Authorize]
+        public ActionResult Index(int? page, string searchString)
         {
+            int pgSize = 10;
+                int pageNumber = (page ?? 1);
+            var Profile = from r in db.Profile select r;
+            Profile = db.Profile.OrderBy(r => r.ProfileFirst);
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                Profile = Profile.Where(r => r.ProfileFirst.Contains(searchString));
+            }
+            /* there's a line of code that needs to go here that I can't figure out how to write. it's the one that uses toPagedList. */
             return View(db.Profile.ToList());
         }
 
         // GET: Profiles/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +50,7 @@ namespace MIS4200Team5.Controllers
         }
 
         // GET: Profiles/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -47,6 +61,7 @@ namespace MIS4200Team5.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "ProfileID,ProfileFirst,ProfileLast,ProfileBday,ProfileEmail,ProfileJobTitle")] Profile profile)
         {
             if (ModelState.IsValid)
@@ -60,6 +75,7 @@ namespace MIS4200Team5.Controllers
         }
 
         // GET: Profiles/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +107,7 @@ namespace MIS4200Team5.Controllers
         }
 
         // GET: Profiles/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
