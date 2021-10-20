@@ -171,6 +171,7 @@
     <Compile Include="Controllers\EmployeeQuestionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileCreationController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +258,16 @@
     <Content Include="Views\EmployeeAdded\Details.cshtml" />
     <Content Include="Views\EmployeeAdded\Edit.cshtml" />
     <Content Include="Views\EmployeeAdded\Index.cshtml" />
+    <Content Include="Views\UpdatedProfiles\Create.cshtml" />
+    <Content Include="Views\UpdatedProfiles\Delete.cshtml" />
+    <Content Include="Views\UpdatedProfiles\Details.cshtml" />
+    <Content Include="Views\UpdatedProfiles\Edit.cshtml" />
+    <Content Include="Views\UpdatedProfiles\Index.cshtml" />
+    <Content Include="Views\ProfileCreation\Create.cshtml" />
+    <Content Include="Views\ProfileCreation\Delete.cshtml" />
+    <Content Include="Views\ProfileCreation\Details.cshtml" />
+    <Content Include="Views\ProfileCreation\Edit.cshtml" />
+    <Content Include="Views\ProfileCreation\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,66 @@
+﻿@model MIS4200Team5.Models.Profile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Profile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileFirst)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileFirst)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileLast)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileLast)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileBday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileBday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileJobTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfileJobTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.role)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

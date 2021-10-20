@@ -10,33 +10,20 @@ using MIS4200Team5.DAL;
 using MIS4200Team5.Models;
 using Microsoft.AspNet.Identity;
 
-
-
 namespace MIS4200Team5.Controllers
 {
-    public class ProfilesController : Controller
+    public class ProfileCreationController : Controller
     {
         private ProfileContext db = new ProfileContext();
 
-        // GET: Profiles
-        [Authorize]
-        public ActionResult Index(int? page, string searchString)
+        // GET: ProfileCreation
+        public ActionResult Index()
         {
-            int pgSize = 10;
-                int pageNumber = (page ?? 1);
-            var Profile = from r in db.Profile select r;
-            Profile = db.Profile.OrderBy(r => r.ProfileFirst);
-            if(!String.IsNullOrEmpty(searchString))
-            {
-                Profile = Profile.Where(r => r.ProfileFirst.Contains(searchString));
-            }
-            /* there's a line of code that needs to go here that I can't figure out how to write. it's the one that uses toPagedList. */
             return View(db.Profile.ToList());
         }
 
-        // GET: Profiles/Details/5
-        [Authorize]
-        public ActionResult Details(int? id)
+        // GET: ProfileCreation/Details/5
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
@@ -50,41 +37,32 @@ namespace MIS4200Team5.Controllers
             return View(profile);
         }
 
-        // GET: Profiles/Create
-        [Authorize]
+        // GET: ProfileCreation/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Profiles/Create
+        // POST: ProfileCreation/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
-        public ActionResult Create([Bind(Include = "ProfileID,ProfileFirst,ProfileLast,ProfileBday,ProfileEmail,ProfileJobTitle")] Profile profile)
+        public ActionResult Create([Bind(Include = "ProfileID,ProfileFirst,ProfileLast,ProfileBday,ProfileEmail,ProfileJobTitle,role")] Profile profile)
         {
             if (ModelState.IsValid)
             {
-                Guid memberId;
-                Guid.TryParse(User.Identity.GetUserId(), out memberId);
-                profile.ProfileID = memberId;
-                profile.ProfileEmail = User.Identity.Name;
-                
-                
-                    
+                profile.ProfileID = Guid.NewGuid();
                 db.Profile.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("Create", "EmployeeQuestions");
+                return RedirectToAction("Index");
             }
 
             return View(profile);
         }
 
-        // GET: Profiles/Edit/5
-        [Authorize]
-        public ActionResult Edit(int? id)
+        // GET: ProfileCreation/Edit/5
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -98,12 +76,12 @@ namespace MIS4200Team5.Controllers
             return View(profile);
         }
 
-        // POST: Profiles/Edit/5
+        // POST: ProfileCreation/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProfileID,ProfileFirst,ProfileLast,ProfileBday,ProfileEmail,ProfileJobTitle")] Profile profile)
+        public ActionResult Edit([Bind(Include = "ProfileID,ProfileFirst,ProfileLast,ProfileBday,ProfileEmail,ProfileJobTitle,role")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -114,9 +92,8 @@ namespace MIS4200Team5.Controllers
             return View(profile);
         }
 
-        // GET: Profiles/Delete/5
-        [Authorize]
-        public ActionResult Delete(int? id)
+        // GET: ProfileCreation/Delete/5
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -130,10 +107,10 @@ namespace MIS4200Team5.Controllers
             return View(profile);
         }
 
-        // POST: Profiles/Delete/5
+        // POST: ProfileCreation/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Profile profile = db.Profile.Find(id);
             db.Profile.Remove(profile);
