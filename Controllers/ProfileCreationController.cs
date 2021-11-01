@@ -73,6 +73,8 @@ namespace MIS4200Team5.Controllers
                 Guid.TryParse(User.Identity.GetUserId(), out memberId);             
                 profile.ProfileID = memberId;
                 profile.ProfileEmail = User.Identity.Name;
+                db.Profile.Add(profile);
+                db.SaveChanges();
                 return RedirectToAction( "Create", "EmployeeQuestions");
             }
 

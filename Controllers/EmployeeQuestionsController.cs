@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MIS4200Team5.DAL;
 using MIS4200Team5.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Team5.Controllers
 {
@@ -51,6 +52,9 @@ namespace MIS4200Team5.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid memberId;
+                Guid.TryParse(User.Identity.GetUserId(), out memberId);
+                employeeQuestions.EmployeeQuestionsID = memberId;
                 db.EmployeeQuestions.Add(employeeQuestions);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -9,7 +9,7 @@ namespace MIS4200Team5.Models
 {
     public class EmployeeQuestions
     {
-        public int EmployeeQuestionsID { get; set; }
+        public Guid EmployeeQuestionsID { get; set; }
         [Required]
         [DisplayName("What is your greatest strength?")]
         public string Q1 { get; set; }
@@ -25,6 +25,6 @@ namespace MIS4200Team5.Models
         [Required]
         [DisplayName("Give us some more information about yourself, if you like.")]
         public string Q5 { get; set; }
-        public ICollection<Profile> Profile { get; set; }
+        public Guid ProfileID { get; set; }
     }
 }
