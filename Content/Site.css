@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
     padding-top: 100px;
     padding-bottom: 100px;
     background-color: thistle;
@@ -24,7 +24,7 @@ textarea {
     max-width: 280px;
 }
 /* text and links are inherently different colors in formatting*/
- /* .jumbotron ul > li > a {
+/* .jumbotron ul > li > a {
     color:white
 }
      testing changes! does this work? */

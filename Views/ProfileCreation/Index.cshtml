@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MIS4200Team5.Models.Profile>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of Profiles";
 }
 
 <h2>Index</h2>
@@ -9,6 +9,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "ProfileCreation", FormMethod.Get))
+{
+    <p>
+        Find a profile by their first name:@Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -32,32 +39,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileFirst)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileLast)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileBday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileJobTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.role)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProfileID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileFirst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileLast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileBday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileJobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProfileID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProfileID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProfileID })
+            </td>
+        </tr>
+    }
 
 </table>

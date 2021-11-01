@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MIS4200Team5.Models.CVRecognition>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CV1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CV7)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CV7)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CVRecognitionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CVRecognitionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CVRecognitionID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model MIS4200Team5.Models.CVRecognition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CVRecognition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CV1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV6)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV7)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV7)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CVRecognitionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
